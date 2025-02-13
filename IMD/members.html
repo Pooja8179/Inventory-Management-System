@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members</title>
+    <style>
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('background.jpg'); /* Replace with your image URL */
+            background-size: cover; /* Cover the entire background */
+            background-position: center; /* Center the image */
+            color: white; /* Text color */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh; /* Minimum height for full viewport */
+        }
+
+        /* Members Container */
+        .members-container {
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            width: 80%; /* Set a width for the members box */
+            max-width: 1000px; /* Max width for larger screens */
+            text-align: center;
+        }
+
+        /* Title styling */
+        .members-title {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        /* Button styling */
+        .action-button {
+            background-color: #ff5722; /* Button background color */
+            color: white; /* Button text color */
+            border: none; /* No border */
+            padding: 10px 20px; /* Padding for button */
+            font-size: 18px; /* Font size */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor */
+            transition: background-color 0.3s; /* Smooth background transition */
+            margin: 10px 0; /* Margin between buttons */
+        }
+
+        .action-button:hover {
+            background-color: #e64a19; /* Darker shade on hover */
+        }
+
+        /* Table styling */
+        .members-table {
+            width: 100%; /* Full width */
+            border-collapse: collapse; /* Remove space between cells */
+            margin-top: 20px;
+        }
+        
+        .members-table th, .members-table td {
+            padding: 10px;
+            border: 1px solid white; /* White borders */
+        }
+
+        .members-table th {
+            background-color: #ff5722; /* Header background */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Members Container -->
+    <div class="members-container">
+        <div class="members-title">Manage Members</div>
+
+        <!-- Action Buttons -->
+        <button class="action-button" onclick="location.href='#addMember'">Add Member</button>
+        <button class="action-button" onclick="location.href='#updateMember'">Update Member</button>
+        <button class="action-button" onclick="location.href='#deleteMember'">Delete Member</button>
+
+        <!-- Members Table -->
+        <table class="members-table">
+            <thead>
+                <tr>
+                    <th>Member ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Membership Type</th>
+                    <th>Join Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>John Doe</td>
+                    <td>johndoe@example.com</td>
+                    <td>+1234567890</td>
+                    <td>Premium</td>
+                    <td>2024-01-15</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Jane Smith</td>
+                    <td>janesmith@example.com</td>
+                    <td>+0987654321</td>
+                    <td>Standard</td>
+                    <td>2024-02-20</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Bob Johnson</td>
+                    <td>bobjohnson@example.com</td>
+                    <td>+1122334455</td>
+                    <td>Basic</td>
+                    <td>2024-03-30</td>
+                </tr>
+                <!-- Add more members as needed -->
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

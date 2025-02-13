@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .products-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            width: 80%;
+            max-width: 800px;
+            text-align: center;
+        }
+        .products-title {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid white;
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="products-container">
+        <div class="products-title">View Products</div>
+        <div id="productTable"></div>
+    </div>
+
+    <script>
+        function loadProducts() {
+            let products = JSON.parse(localStorage.getItem('products')) || [];
+            let tableHtml = '<table><thead><tr><th>Product Name</th><th>Price</th><th>Quantity</th></tr></thead><tbody>';
+
+            if (products.length > 0) {
+                products.forEach(product => {
+                    tableHtml += `
+                    <tr>
+                        <td>${product.name}</td>
+                        <td>${product.price}</td>
+                        <td>${product.quantity}</td>
+                    </tr>`;
+                });
+            } else {
+                tableHtml += '<tr><td colspan="3">No products available.</td></tr>';
+            }
+
+            tableHtml += '</tbody></table>';
+            document.getElementById('productTable').innerHTML = tableHtml;
+        }
+
+        window.onload = loadProducts;
+    </script>
+
+</body>
+</html>

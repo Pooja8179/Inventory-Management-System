@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <style>
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('background.jpg'); /* Replace with your image URL */
+            background-size: cover; /* Cover the entire background */
+            background-position: center; /* Center the image */
+            color: white; /* Text color */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Full viewport height */
+        }
+
+        /* Profile container styling */
+        .profile-container {
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            width: 300px; /* Set a width for the profile box */
+            text-align: center;
+        }
+
+        /* Profile header styling */
+        .profile-header {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        /* Profile info styling */
+        .profile-info {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        /* Input styling */
+        input[type="text"], input[type="email"], input[type="tel"] {
+            width: 100%; /* Full width */
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        /* Button styling */
+        .edit-button, .save-button {
+            background-color: #ff5722; /* Button background color */
+            color: white; /* Button text color */
+            border: none; /* No border */
+            padding: 10px 20px; /* Padding for button */
+            font-size: 18px; /* Font size */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor */
+            transition: background-color 0.3s; /* Smooth background transition */
+        }
+
+        .edit-button:hover, .save-button:hover {
+            background-color: #e64a19; /* Darker shade on hover */
+        }
+
+        /* Hide the form initially */
+        .edit-form {
+            display: none; /* Hidden by default */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Profile Container -->
+    <div class="profile-container">
+        <div class="profile-header">My Profile</div>
+        <div class="profile-info">Name: <span id="profileName">John Doe</span></div>
+        <div class="profile-info">Email: <span id="profileEmail">johndoe@example.com</span></div>
+        <div class="profile-info">Phone: <span id="profilePhone">+1234567890</span></div>
+        
+        <!-- Edit Button -->
+        <button class="edit-button" onclick="toggleEdit()">Edit Profile</button>
+
+        <!-- Edit Form -->
+        <div class="edit-form" id="editForm">
+            <input type="text" id="editName" placeholder="Enter your name">
+            <input type="email" id="editEmail" placeholder="Enter your email">
+            <input type="tel" id="editPhone" placeholder="Enter your phone">
+            <button class="save-button" onclick="saveChanges()">Save Changes</button>
+        </div>
+    </div>
+
+    <script>
+        // Toggle edit form visibility
+        function toggleEdit() {
+            const editForm = document.getElementById('editForm');
+            editForm.style.display = editForm.style.display === 'none' || editForm.style.display === '' ? 'block' : 'none';
+
+            // Pre-fill input fields with current profile info
+            if (editForm.style.display === 'block') {
+                document.getElementById('editName').value = document.getElementById('profileName').textContent;
+                document.getElementById('editEmail').value = document.getElementById('profileEmail').textContent;
+                document.getElementById('editPhone').value = document.getElementById('profilePhone').textContent;
+            }
+        }
+
+        // Save changes to profile info
+        function saveChanges() {
+            const name = document.getElementById('editName').value;
+            const email = document.getElementById('editEmail').value;
+            const phone = document.getElementById('editPhone').value;
+
+            // Update profile info on the page
+            document.getElementById('profileName').textContent = name;
+            document.getElementById('profileEmail').textContent = email;
+            document.getElementById('profilePhone').textContent = phone;
+
+            // Hide edit form
+            toggleEdit();
+        }
+    </script>
+
+</body>
+</html>
